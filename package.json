@@ -13,6 +13,8 @@
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",
     "@reduxjs/toolkit": "^1.9.1",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/jest": "^29.2.5",
     "@types/node": "^18.11.18",
     "axios": "^1.2.2",
     "framer-motion": "^8.0.2",
@@ -31,10 +33,13 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app"
+      "react-app",
+      "react-app/jest"
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.0.0",
