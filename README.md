@@ -1,6 +1,6 @@
 <div align="center">
   <a href="">
-    <img src="./src/assets/netflix-logo.png" alt="Logo" width="100" height="32">
+    <img src="src/assets/netflix-1-logo-svgrepo-com.svg" alt="Logo" width="100" height="32">
   </a>
 
   <h3 align="center">Netflix Clone</h3>
