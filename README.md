@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://pabl0parra-netflix-clone.netlify.app/">
+  <a href="https://pabl0parra-netflix-clone.netlify.app/" target="_blank">
     <img src="./public/assets/netflix-logo.png" alt="Logo" width="100" height="32">
   </a>
 
