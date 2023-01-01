@@ -9,16 +9,16 @@ import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import AddIcon from "@mui/icons-material/Add";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Movie } from "types/Movie";
-import { useAppSelector } from "hooks/redux";
-import useMiniModalPortal from "hooks/useMiniModalPortal";
+import { Movie } from "../types/Movie";
+import { useAppSelector } from "../hooks/redux";
+import useMiniModalPortal from "../hooks/useMiniModalPortal";
 import NetflixIconButton from "./NetflixIconButton";
 import MaxLineTypography from "./MaxLineTypography";
-import { formatMinuteToReadable, getRandomNumber } from "utils/common";
+import { formatMinuteToReadable, getRandomNumber } from "../utils/common";
 import AgeLimitChip from "./AgeLimitChip";
 import QualityChip from "./QualityChip";
 import GenreBreadcrumbs from "./GenreBreadcrumbs";
-import useDetailModal from "hooks/useDetailModal";
+import useDetailModal from "../hooks/useDetailModal";
 
 interface MiniMediaModalProps {
   video: Movie;
