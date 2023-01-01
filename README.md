@@ -21,7 +21,7 @@
       <a href="#prerequisites">Prerequisites</a>
     </li>
     <li>
-      <a href="#features-this-project-deals-with">Features this project deals with</a>
+      <a href="#which-features-this-project-deals-with">Features this project deals with</a>
     </li>
     <li><a href="#third-party-libraries-used-except-for-react-and-rtk">Third Party libraries used except for React and RTK</a></li>
     <li><a href="#todo">Features under development</a></li>
@@ -51,7 +51,7 @@
 
 - Finally, if you use v3 of TMDB API, create a file named `.env`, copy-paste the content of `.env.example` to the `.env` file you just created and then paste the API Key you got at TMDB.
 
-## Features this project deal with
+## Which features this project deal with
 
 - How to create and use [Custom Hooks](https://reactjs.org/docs/hooks-custom.html)
 - How to use [Context](https://reactjs.org/docs/context.html) and its provider
