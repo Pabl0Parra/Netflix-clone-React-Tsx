@@ -25,7 +25,7 @@ export default function Footer() {
               sx={{ color: "text.primary" }}
               target="_blank"
             >
-              Pabl0Parra 2023
+              Pabl0Parra
             </Link>
           </Typography>
         </Divider>
