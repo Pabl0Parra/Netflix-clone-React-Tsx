@@ -83,9 +83,11 @@ docker run --name netflix-clone-website --rm -d -p 80:80 netflix-clone
 
 ## Todo
 
-- Implement animation using motion hook from `react-use`, now I am using `framer-motion` for animation. If we use the motion hook from `react-use`, `framer-motion` is not needed.
-- Improve performance. I am using `context` and `provider` but all components subscribed to the context's value are re-rendered. These re-renders happen even if the part of the value is not used in the render of the component. There are [several ways](https://blog.axlight.com/posts/4-options-to-prevent-extra-rerenders-with-react-context/) to prevent these re-renders. In addition to them, there may be several performance issues.
-- Replace bundler([Vite](https://vitejs.dev/guide)) with [Turbopack](https://turbo.build/pack/docs/why-turbopack). Turbopack is introduced in Next.js conf recently. It's very fast but it's not ready to use right now with React. It just supports Next.js, they plan to support all others as soon as possible, so if it's ready to use, replace [Vite](https://vitejs.dev/guide) with [Turbopack](https://turbo.build/pack/docs/why-turbopack).
+- [] Add loader.
+
+- [] Implement animation using motion hook from `react-use`, now I am using `framer-motion` for animation. If we use the motion hook from `react-use`, `framer-motion` is not needed.
+- [] Improve performance. I am using `context` and `provider` but all components subscribed to the context's value are re-rendered. These re-renders happen even if the part of the value is not used in the render of the component. There are [several ways](https://blog.axlight.com/posts/4-options-to-prevent-extra-rerenders-with-react-context/) to prevent these re-renders. In addition to them, there may be several performance issues.
+- [] Replace bundler([Vite](https://vitejs.dev/guide)) with [Turbopack](https://turbo.build/pack/docs/why-turbopack). Turbopack is introduced in Next.js conf recently. It's very fast but it's not ready to use right now with React. It just supports Next.js, they plan to support all others as soon as possible, so if it's ready to use, replace [Vite](https://vitejs.dev/guide) with [Turbopack](https://turbo.build/pack/docs/why-turbopack).
 
 ## Contact
 
