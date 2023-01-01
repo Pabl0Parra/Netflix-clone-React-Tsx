@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import type { GenreType } from "../types/Genre";
-import { MEDIA_TYPE } from "../types/Movie";
-import { axiosInstance } from "../utils/axios";
+import type { GenreType } from "../../types/Genre";
+import { MEDIA_TYPE } from "../../types/Movie";
+import { axiosInstance } from "../../utils/axios";
 
 // Define a type for the slice state
 interface GenreState {

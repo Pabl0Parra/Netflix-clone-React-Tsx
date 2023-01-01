@@ -3,7 +3,7 @@ import { useRoutes, Navigate } from "react-router-dom";
 
 import MainLayout from "../layouts/MainLayout";
 import { MAIN_PATH } from "./paths";
-import GenreExplore from "../pages/GenreExplore";
+import GenreExplore from "../pages/GenreExplorer";
 
 const Loadable = (Component: ElementType) => (props: any) => {
   return (

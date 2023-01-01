@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { axiosInstance } from "../utils/axios";
+import { axiosInstance } from "../../utils/axios";
 
 // Define a type for the slice state
 interface ConfigurationState {
