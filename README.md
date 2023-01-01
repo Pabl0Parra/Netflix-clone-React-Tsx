@@ -1,12 +1,12 @@
 <div align="center">
-  <a href="http://netflix-clone-with-tmdb-using-react-mui.vercel.app/">
+  <a href="https://pabl0parra-netflix-clone.netlify.app/">
     <img src="./public/assets/netflix-logo.png" alt="Logo" width="100" height="32">
   </a>
 
   <h3 align="center">Netflix Clone</h3>
 
   <p align="center">
-    <a href="">View Demo</a>
+    <a href="https://pabl0parra-netflix-clone.netlify.app/">View Demo</a>
     ·
     <a href="https://github.com/Pabl0Parra/Netflix-clone-React-Typescript/issues">Report Bug</a>
     ·
