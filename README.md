@@ -24,6 +24,7 @@
       <a href="#features-this-project-deals-with">Features this project deals with</a>
     </li>
     <li><a href="#third-party-libraries-used-except-for-react-and-rtk">Third Party libraries used except for React and RTK</a></li>
+    <li><a href="#todo">Features under development</a></li>
     <li>
       <a href="#contact">Contact</a>
     </li>
@@ -45,7 +46,7 @@
 
 ## Prerequisites
 
-- Create an account or use your exsiting one at [TMDB](https://www.themoviedb.org/).
+- Create an account or use your existing one at [TMDB](https://www.themoviedb.org/).
 - Follow the [documentation](https://developers.themoviedb.org/3/getting-started/introduction) to create the API Key.
 
 - Finally, if you use v3 of TMDB API, create a file named `.env`, copy-paste the content of `.env.example` to the `.env` file you just created and then paste the API Key you got at TMDB.
@@ -63,7 +64,7 @@
 - How to use [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
 - How to customize default classname of [MUI](https://mui.com/material-ui/experimental-api/classname-generator).
 - Infinite Scrolling(using [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API))
-- How to make awesome carousel using [slick-carousel](https://react-slick.neostack.com)
+- How to make an awesome carousel using [slick-carousel](https://react-slick.neostack.com)
 
 ## Third Party libraries used except for React and RTK
 
