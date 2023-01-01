@@ -18,10 +18,10 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#prerequests">Pre requeriments</a>
+      <a href="#prerequisites">Prerequisites</a>
     </li>
     <li>
-      <a href="#which-features-this-project-deals-with">Features this project deals with</a>
+      <a href="#features-this-project-deals-with">Features this project deals with</a>
     </li>
     <li><a href="#third-party-libraries-used-except-for-react-and-rtk">Third Party libraries used except for React and RTK</a></li>
     <li>
@@ -43,7 +43,7 @@
   <p align="center">Grid Genre Page</p>
 </div>
 
-## Prerequests
+## Prerequisites
 
 - Create an account if you don't have on [TMDB](https://www.themoviedb.org/).
   Because I use its free API to consume movie/tv data.
@@ -79,4 +79,4 @@
 > **Note**
 > There might be several things to improve.
 > This project aims to show how to use the features mentioned above.
-> So I welcome anyone who wants to contribute.
+> I welcome anyone who wants to contribute.
