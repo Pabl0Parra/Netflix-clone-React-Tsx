@@ -1,33 +1,38 @@
 import { ElementType, lazy, Suspense } from "react";
-import { useRoutes, Navigate } from "react-router-dom";
+import { Navigate, useRoutes } from "react-router-dom";
+import MainLoadingScreen from "src/components/MainLoadingScreen";
 
-import MainLayout from "../layouts/MainLayout";
+import MainLayout from "src/layouts/MainLayout";
 import { MAIN_PATH } from "./paths";
-import GenreExplore from "../pages/GenreExplorer";
 
 const Loadable = (Component: ElementType) => (props: any) => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<MainLoadingScreen />}>
       <Component {...props} />
     </Suspense>
   );
 };
 
-export default function MainRoutes() {
-  let routes = useRoutes([
-    { path: "", element: <Navigate to={MAIN_PATH.browse} replace /> },
+const HomePage = Loadable(lazy(() => import("src/pages/HomePage")));
+const GenreExplorePage = Loadable(lazy(() => import("src/pages/GenreExplore")));
+
+function MainRoutes() {
+  return useRoutes([
     {
-      path: MAIN_PATH.browse,
+      path: "/",
       element: <MainLayout />,
-      children: [{ path: "", element: <HomePage /> }],
-    },
-    {
-      path: MAIN_PATH.genreExplore,
-      element: <MainLayout />,
-      children: [{ path: ":genreId", element: <GenreExplore /> }],
+      children: [
+        { path: "", element: <Navigate to={MAIN_PATH.browse} /> },
+        {
+          path: "browse",
+          element: <HomePage />,
+        },
+        {
+          path: "genre",
+          children: [{ path: ":genreId", element: <GenreExplorePage /> }],
+        },
+      ],
     },
   ]);
-  return routes;
 }
-
-const HomePage = Loadable(lazy(() => import("../pages/HomePage")));
+export default MainRoutes;

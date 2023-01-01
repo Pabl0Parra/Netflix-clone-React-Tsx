@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Box, { BoxProps } from "@mui/material/Box";
-import { varWrapEnter } from "./variants/Wrap";
+import { varWrapBoth } from "./variants/Wrap";
 
 interface MotionContainerProps extends BoxProps {
   initial?: boolean | string;
@@ -14,10 +14,10 @@ export default function MotionContainer({
 }: MotionContainerProps) {
   return (
     <Box
-      component={motion.div}
       initial={false}
+      variants={varWrapBoth}
+      component={motion.div}
       animate={open ? "animate" : "exit"}
-      variants={varWrapEnter}
       {...other}
     >
       {children}

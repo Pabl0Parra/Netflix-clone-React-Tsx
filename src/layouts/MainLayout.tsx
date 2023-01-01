@@ -1,19 +1,21 @@
 import Header from "../components/Header";
-import { MiniModalPortalProvider } from "../contexts/MiniModalPortalContext";
-import MiniModalPortal from "../components/MiniModalPortal";
-import DetailModalProvider from "../contexts/DetailModalContext";
 import { Outlet } from "react-router-dom";
-import Footer from "../components/Footer";
+import Footer from "src/components/Footer";
+import DetailModal from "src/components/DetailModal";
+import VideoPortalContainer from "src/components/VideoPortalContainer";
+import DetailModalProvider from "src/providers/DetailModalProvider";
+import PortalProvider from "src/providers/PortalProvider";
 
 export default function MainLayout() {
   return (
     <>
       <Header />
       <DetailModalProvider>
-        <MiniModalPortalProvider>
+        <DetailModal />
+        <PortalProvider>
           <Outlet />
-          <MiniModalPortal />
-        </MiniModalPortalProvider>
+          <VideoPortalContainer />
+        </PortalProvider>
       </DetailModalProvider>
       <Footer />
     </>

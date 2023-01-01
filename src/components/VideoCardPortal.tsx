@@ -9,40 +9,41 @@ import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import AddIcon from "@mui/icons-material/Add";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Movie } from "../types/Movie";
-import { useAppSelector } from "../hooks/redux";
-import useMiniModalPortal from "../hooks/useMiniModalPortal";
+import { Movie } from "src/types/Movie";
+import { usePortal } from "src/providers/PortalProvider";
+import { useDetailModal } from "src/providers/DetailModalProvider";
+import { formatMinuteToReadable, getRandomNumber } from "src/utils/common";
 import NetflixIconButton from "./NetflixIconButton";
 import MaxLineTypography from "./MaxLineTypography";
-import { formatMinuteToReadable, getRandomNumber } from "../utils/common";
 import AgeLimitChip from "./AgeLimitChip";
 import QualityChip from "./QualityChip";
 import GenreBreadcrumbs from "./GenreBreadcrumbs";
-import useDetailModal from "../hooks/useDetailModal";
+import { useGetConfigurationQuery } from "src/store/slices/configuration";
+import { MEDIA_TYPE } from "src/types/Common";
+import { useGetGenresQuery } from "src/store/slices/genre";
 
-interface MiniMediaModalProps {
+interface VideoCardModalProps {
   video: Movie;
   anchorElement: HTMLElement;
 }
 
-export default function MiniMediaModal({
+export default function VideoCardModal({
   video,
   anchorElement,
-}: MiniMediaModalProps) {
-  const genres = useAppSelector((state) => state.genres.movie);
-  const configuration = useAppSelector((state) => state.configuration);
-  const { setMiniModal } = useMiniModalPortal();
+}: VideoCardModalProps) {
+  const { data: configuration } = useGetConfigurationQuery(undefined);
+  const { data: genres } = useGetGenresQuery(MEDIA_TYPE.Movie);
+  const { setPortal } = usePortal();
   const rect = anchorElement.getBoundingClientRect();
-  const { setVideoId } = useDetailModal();
+  const { setDetailType } = useDetailModal();
 
   return (
     <Card
       onMouseLeave={() => {
-        setMiniModal(null, null);
+        setPortal(null, null);
       }}
       sx={{
         width: rect.width * 1.5,
-        // height: rect.height * 2.5,
         height: "100%",
       }}
     >
@@ -55,7 +56,7 @@ export default function MiniMediaModal({
       >
         <Box
           component="img"
-          src={`${configuration.images?.base_url}w780${video.backdrop_path}`}
+          src={`${configuration?.images.base_url}w780${video.backdrop_path}`}
           sx={{
             top: 0,
             height: "100%",
@@ -115,7 +116,7 @@ export default function MiniMediaModal({
             <NetflixIconButton
               size="large"
               onClick={() => {
-                setVideoId(video.id);
+                setDetailType({ mediaType: MEDIA_TYPE.Movie, id: video.id });
               }}
             >
               <ExpandMoreIcon />
@@ -132,11 +133,13 @@ export default function MiniMediaModal({
             )}`}</Typography>
             <QualityChip label="HD" />
           </Stack>
-          <GenreBreadcrumbs
-            genres={genres
-              .filter((genre) => video.genre_ids.includes(genre.id))
-              .map((genre) => genre.name)}
-          />
+          {genres && (
+            <GenreBreadcrumbs
+              genres={genres
+                .filter((genre) => video.genre_ids.includes(genre.id))
+                .map((genre) => genre.name)}
+            />
+          )}
         </Stack>
       </CardContent>
     </Card>

@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import MainRoutes from "routes";
+import MainRoutes from "src/routes";
 
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
       sx={{
         width: "100%",
         height: "100vh",
-        bgcolor: "primary.main",
+        bgcolor: "background.default",
         position: "relative",
       }}
     >

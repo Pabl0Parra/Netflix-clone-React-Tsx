@@ -18,14 +18,14 @@ export default function Footer() {
       <Box>
         <Divider>
           <Typography color="grey.700" variant="h6">
-            Developed by{" "}
+            Developed with ❤️ by {""}
             <Link
               href="https://www.linkedin.com/in/pablo-parra-bcn"
               underline="none"
               sx={{ color: "text.primary" }}
               target="_blank"
             >
-              Pabl0Parra
+              Pabl0Parra 2023
             </Link>
           </Typography>
         </Divider>

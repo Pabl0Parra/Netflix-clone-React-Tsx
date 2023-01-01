@@ -1,4 +1,4 @@
-import * as React from "react";
+import { MouseEvent, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
@@ -11,7 +11,7 @@ import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import SearchBox from "./SearchBox";
-import useOffSetTop from "hooks/useOffSetTop";
+import useOffSetTop from "src/hooks/useOffSetTop";
 import Logo from "./Logo";
 import NetflixNavigationLink from "./NetflixNavigationLink";
 
@@ -20,17 +20,13 @@ const pages = ["My List", "Movies", "Tv Shows"];
 const Header = () => {
   const isOffset = useOffSetTop(100);
 
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
-  );
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenUserMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
 
@@ -45,10 +41,10 @@ const Header = () => {
   return (
     <AppBar
       sx={{
-        height: 70,
+        height: 60,
         boxShadow: 0,
-        px: "60px",
-        bgcolor: "transparent",
+        px: "40px",
+        bgcolor: "black",
         backgroundImage: "none",
         ...(isOffset && {
           bgcolor: "primary.main",
@@ -132,12 +128,12 @@ const Header = () => {
           <SearchBox />
           <Tooltip title="Open settings">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              <Avatar alt="Remy Sharp" />
             </IconButton>
           </Tooltip>
           <Menu
             sx={{ mt: "45px" }}
-            id="menu-appbar"
+            id="avatar-menu"
             anchorEl={anchorElUser}
             anchorOrigin={{
               vertical: "top",

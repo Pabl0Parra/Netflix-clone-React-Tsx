@@ -7,12 +7,14 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 
 import CustomNavigation from "./CustomNavigation";
-import { CommonTitle, Genre, Movie } from "types/Movie";
-import VideoItemWithHover from "components/VideoItemWithHover";
-import { ARROW_MAX_WIDTH } from "constant";
-import NetflixNavigationLink from "components/NetflixNavigationLink";
-import MotionContainer from "components/animate/MotionContainer";
-import { varFadeIn } from "components/animate/variants/fade/FadeIn";
+import VideoItemWithHover from "src/components/VideoItemWithHover";
+import { ARROW_MAX_WIDTH } from "src/constant";
+import NetflixNavigationLink from "src/components/NetflixNavigationLink";
+import MotionContainer from "src/components/animate/MotionContainer";
+import { varFadeIn } from "src/components/animate/variants/fade/FadeIn";
+import { CustomGenre, Genre } from "src/types/Genre";
+import { Movie } from "src/types/Movie";
+import { PaginatedMovieResult } from "src/types/Common";
 
 const RootStyle = styled("div")(() => ({
   position: "relative",
@@ -60,10 +62,11 @@ function SlideItem({ item }: SlideItemProps) {
 }
 
 interface SlickSliderProps {
-  videos: Movie[];
-  genre: Genre | CommonTitle;
+  data: PaginatedMovieResult;
+  genre: Genre | CustomGenre;
+  handleNext: (page: number) => void;
 }
-export default function SlickSlider({ videos, genre }: SlickSliderProps) {
+export default function SlickSlider({ data, genre }: SlickSliderProps) {
   const sliderRef = useRef<Slider>(null);
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const [showExplore, setShowExplore] = useState(false);
@@ -86,7 +89,13 @@ export default function SlickSlider({ videos, genre }: SlickSliderProps) {
     lazyLoad: "ondemand",
     slidesToShow: 6,
     slidesToScroll: 6,
+    // afterChange: (current) => {
+    //   console.log("After Change", current);
+    // },
     beforeChange,
+    // onEdge: (direction) => {
+    //   console.log("Edge: ", direction);
+    // },
     responsive: [
       {
         breakpoint: 1536,
@@ -129,20 +138,13 @@ export default function SlickSlider({ videos, genre }: SlickSliderProps) {
 
   return (
     <Box sx={{ overflow: "hidden", height: "100%", zIndex: 1 }}>
-      {videos.length && (
+      {data.results.length > 0 && (
         <>
           <Stack
-            direction="row"
             spacing={2}
-            sx={{ mb: 2 }}
+            direction="row"
             alignItems="center"
-            onMouseOver={() => {
-              setShowExplore(true);
-            }}
-            onMouseLeave={() => {
-              console.log("Leave");
-              setShowExplore(false);
-            }}
+            sx={{ mb: 2, pl: { xs: "30px", sm: "60px" } }}
           >
             <NetflixNavigationLink
               variant="h5"
@@ -151,8 +153,13 @@ export default function SlickSlider({ videos, genre }: SlickSliderProps) {
               }`}
               sx={{
                 display: "inline-block",
-                pl: { xs: "30px", sm: "60px" },
                 fontWeight: 700,
+              }}
+              onMouseOver={() => {
+                setShowExplore(true);
+              }}
+              onMouseLeave={() => {
+                setShowExplore(false);
               }}
             >
               {`${genre.name} Movies `}
@@ -184,9 +191,11 @@ export default function SlickSlider({ videos, genre }: SlickSliderProps) {
                 padding={ARROW_MAX_WIDTH}
                 theme={theme}
               >
-                {videos.map((item, idx) => (
-                  <SlideItem key={idx} item={item} />
-                ))}
+                {data.results
+                  .filter((i) => !!i.backdrop_path)
+                  .map((item) => (
+                    <SlideItem key={item.id} item={item} />
+                  ))}
               </StyledSlider>
             </CustomNavigation>
           </RootStyle>
