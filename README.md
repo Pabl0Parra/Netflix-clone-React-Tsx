@@ -97,4 +97,4 @@ docker run --name netflix-clone-website --rm -d -p 80:80 netflix-clone
 > **Note**
 > This project only aims to show how to use the features mentioned above.
 > There might be several things to improve for performance.
-> So I welcome anyone who wants to contribute.
+> I welcome anyone who wants to contribute.
