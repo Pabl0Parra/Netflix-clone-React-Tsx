@@ -110,7 +110,7 @@ const Header = () => {
         <Stack
           direction="row"
           spacing={3}
-          sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
+          sx={{ flexGrow: 1, display: { xs: "none", sm: "none", md: "flex" } }}
         >
           {pages.map((page) => (
             <NetflixNavigationLink
