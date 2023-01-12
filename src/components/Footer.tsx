@@ -12,13 +12,12 @@ export default function Footer() {
         justifyContent: "center",
         height: 150,
         bgcolor: "inherit",
-        px: "60px",
       }}
     >
       <Box>
         <Divider>
-          <Typography color="grey.700" variant="h6">
-            Developed with ❤️ by {""}
+          <Typography color="grey.700" variant="h5">
+            Built with ❤️ by {""}
             <Link
               href="https://www.linkedin.com/in/pablo-parra-bcn"
               underline="none"
